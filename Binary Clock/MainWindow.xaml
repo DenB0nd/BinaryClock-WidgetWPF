@@ -1,0 +1,38 @@
+﻿<Window x:Class="Binary_Clock.Widget"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Binary_Clock"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="160" Width="240"
+        Background="DimGray" WindowStyle="None" 
+        ResizeMode="NoResize" AllowsTransparency="True" ShowInTaskbar="False" WindowStartupLocation="Manual"
+        MouseDown="Window_MouseDown" MouseRightButtonDown="Window_MouseRightButtonDown" MouseDoubleClick="Window_MouseDoubleClick"
+        Loaded="Window_Loaded" 
+        >
+    <Grid>
+        <Grid.ContextMenu>
+            <ContextMenu Name="Menu">
+                <MenuItem Header="База" ></MenuItem>
+            </ContextMenu>
+        </Grid.ContextMenu>
+
+        <Grid x:Name="Clock">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
+    </Grid>
+</Window>
