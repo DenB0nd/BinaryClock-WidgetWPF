@@ -8,11 +8,13 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using System.Linq;
+using Microsoft.Win32;
 
 namespace Binary_Clock;
 
 public partial class Widget : Window
 {
+    public const string name = "BinaryClock";
     private const int GWL_EXSTYLE = -20;
     private const int WS_EX_TOOLWINDOW = 0x00000080;
     public const int HWND_BOTTOM = 0x1;
@@ -107,11 +109,6 @@ int cx, int cy, uint uFlags);
         {
             DragMove();
         }
-    }
-
-    private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-    {
-        this.Menu.IsOpen = true;
     }
 
     private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)

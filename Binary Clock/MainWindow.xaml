@@ -8,16 +8,10 @@
         Title="MainWindow" Height="160" Width="240"
         Background="Transparent" WindowStyle="None" 
         ResizeMode="NoResize" AllowsTransparency="True" ShowInTaskbar="False" WindowStartupLocation="Manual"
-        MouseDown="Window_MouseDown" MouseRightButtonDown="Window_MouseRightButtonDown" MouseDoubleClick="Window_MouseDoubleClick"
+        MouseDown="Window_MouseDown" MouseDoubleClick="Window_MouseDoubleClick"
         Loaded="Window_Loaded" Closing="Window_Closing"
         >
     <Grid UseLayoutRounding="True">
-        <Grid.ContextMenu>
-            <ContextMenu Name="Menu">
-                <MenuItem Header="База" ></MenuItem>
-            </ContextMenu>
-        </Grid.ContextMenu>
-
         <Grid x:Name="Clock">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
