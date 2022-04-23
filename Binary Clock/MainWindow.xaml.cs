@@ -10,9 +10,6 @@ using System.Windows.Controls;
 
 namespace Binary_Clock
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class Widget : Window
     {
         private const int GWL_EXSTYLE = -20;
@@ -21,6 +18,9 @@ namespace Binary_Clock
         public const uint SWP_NOSIZE = 0x1;
         public const uint SWP_NOMOVE = 0x2;
         public const uint SWP_SHOWWINDOW = 0x40;
+
+        private static SolidColorBrush _colorFor0 = new(Colors.DimGray);
+        private static SolidColorBrush _colorFor1 = new(Colors.Orange);
 
         [DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr window, int index, int value);
@@ -97,8 +97,6 @@ int cx, int cy, uint uFlags);
         {
             SetWindowPos((int)this.Handle, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOMOVE |
                 SWP_NOSIZE | SWP_SHOWWINDOW);
-        }
-
-        
+        }       
     }
 }
