@@ -9,7 +9,7 @@
         Background="Transparent" WindowStyle="None" 
         ResizeMode="NoResize" AllowsTransparency="True" ShowInTaskbar="False" WindowStartupLocation="Manual"
         MouseDown="Window_MouseDown" MouseRightButtonDown="Window_MouseRightButtonDown" MouseDoubleClick="Window_MouseDoubleClick"
-        Loaded="Window_Loaded" 
+        Loaded="Window_Loaded" Closing="Window_Closing"
         >
     <Grid UseLayoutRounding="True">
         <Grid.ContextMenu>

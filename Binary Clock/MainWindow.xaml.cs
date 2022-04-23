@@ -40,7 +40,8 @@ int cx, int cy, uint uFlags);
     public Widget()
     {
         InitializeComponent();
-        this.Left = SystemParameters.PrimaryScreenWidth - this.Width;
+        this.Left = Properties.Settings.Default.Left;
+        this.Top = Properties.Settings.Default.Top;
         DispatcherTimer timer = new DispatcherTimer();
         timer.Interval = TimeSpan.FromSeconds(1);
         timer.Tick += Timer_Tick;
@@ -116,6 +117,13 @@ int cx, int cy, uint uFlags);
     private void Window_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
         Close();
+    }
+
+    private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        Properties.Settings.Default.Top = this.Top;
+        Properties.Settings.Default.Left = this.Left;
+        Properties.Settings.Default.Save();
     }
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
