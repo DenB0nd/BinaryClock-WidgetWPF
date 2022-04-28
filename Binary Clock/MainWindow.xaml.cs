@@ -52,12 +52,13 @@ int cx, int cy, uint uFlags);
 
     private void Timer_Tick(object? sender, EventArgs e)
     {
-        var clock = GetClockMatrix(BinaryClock.Now);
+        var clock = GetClockMatrix();
         RecolorClock(clock);
     }
 
-    private char[][] GetClockMatrix(Clock clock)
+    private char[][] GetClockMatrix()
     {
+        Clock clock = new BinaryClock().Now;
         char[][] result = new char[][]
         {
             clock.HourFirstDigit.ToCharArray(),
