@@ -25,6 +25,7 @@ public partial class Widget : Window
     private const char BINARY_ONE = '1';
     private static Color _colorFor0 = Colors.DimGray;
     private static Color _colorFor1 = Colors.Orange;
+    private DispatcherTimer timer;
 
     [DllImport("user32.dll")]
     private static extern int SetWindowLong(IntPtr window, int index, int value);
@@ -44,7 +45,7 @@ int cx, int cy, uint uFlags);
         InitializeComponent();
         this.Left = Properties.Settings.Default.Left;
         this.Top = Properties.Settings.Default.Top;
-        DispatcherTimer timer = new DispatcherTimer();
+        timer = new DispatcherTimer();
         timer.Interval = TimeSpan.FromSeconds(1);
         timer.Tick += Timer_Tick;
         timer.Start();
@@ -71,7 +72,8 @@ int cx, int cy, uint uFlags);
         return Rotate(result);
     }
     private void RecolorClock(char[][] clock)
-    { 
+    {
+        Clock.Children.Clear();
         for (int i = 0; i < this.Clock.RowDefinitions.Count; i++)
         {
             for (int j = 0; j < this.Clock.ColumnDefinitions.Count; j++)
@@ -80,7 +82,7 @@ int cx, int cy, uint uFlags);
                 ellipse.Fill = new SolidColorBrush(ChooseColorBrush(clock[i][j]));
                 ellipse.Margin = new Thickness(2, 2, 2, 2);
                 Grid.SetRow(ellipse, i);
-                Grid.SetColumn(ellipse, j);
+                Grid.SetColumn(ellipse, j);                
                 Clock.Children.Add(ellipse);
             }
         }
